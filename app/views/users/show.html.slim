@@ -1,0 +1,23 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @user.name
+
+p
+  strong Skils:
+  = render 'tag_list', tag_list: @user.skill_list
+p 
+  |同じタグを持っている:
+  = render 'related_users', users: @user.find_related_skills
+
+p
+  strong Interests:
+  = render 'tag_list', tag_list: @user.interest_list
+p
+  |同じタグを持っている:
+  = render 'related_users', users: @user.find_related_interests
+
+= link_to 'Edit', edit_user_path(@user)
+'|
+= link_to 'Back', users_path
